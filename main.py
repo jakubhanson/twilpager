@@ -40,7 +40,7 @@ class CallHandler(webapp.RequestHandler):
             logging.debug("greeting = \"" + greeting + "\"")
         else:
             logging.info("Using default greeting")
-            greeting = "Leave a message to contact the on call staff."
+            greeting = "Thanks You for contacting IT support. Please leave a meassage to page the on duty technician."
         
         # Determine the RecordHandler URL to use based on the current base URL
         o = urlparse.urlparse(self.request.url)
@@ -98,7 +98,7 @@ class RecordHandler(webapp.RequestHandler):
 
         response = (
                 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-                "<Response><Say>Thank you. We are now directing your message to the on call staff. Goodbye.</Say>"
+                "<Response><Say>Thank you. We are now directing your message to the on call technician. Goodbye.</Say>"
                 "</Response>")
         self.response.out.write(response)
 
@@ -137,8 +137,8 @@ class IndexHandler(webapp.RequestHandler):
     def get(self):
         response = (
                 "<html>"
-                "<h1>phoneduty</h1>"
-		"<p><a href=\"http://www.github.com/dsshafer/phoneduty\">http://www.github.com/dsshafer/phoneduty</a></p>"
+                "<h1>twilpager</h1>"
+		"<p><a href=\"http://github.com/jakubhanson/twilpager\">http://github.com/jakubhanson/twilpager</a></p>"
                 "</html>")
         self.response.out.write(response)
 
