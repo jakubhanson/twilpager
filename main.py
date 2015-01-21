@@ -9,6 +9,8 @@ import logging
 import urllib2
 import urlparse
 
+SERVICE_KEY = "62bcaae9fbdf4f3abb9fcae26ec2e279"
+
 # Shorten MP3 URL for SMS length limits
 def shorten(url):
     gurl = 'https://www.googleapis.com/urlshortener/v1/url'
