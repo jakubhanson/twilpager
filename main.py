@@ -1,10 +1,11 @@
 # PagerDuty incidents triggered by phone: 
 import logging
-from urllib2 import Request, urlopen, URLError, HTTPError
-import urllib
-from django.utils import simplejson as json
 from google.appengine.ext import webapp
-from google.appengine.ext.webapp import util
+from google.appengine.ext.webapp.util import run_wsgi_app
+import json
+import logging
+import urllib2
+import urlparse
 
 SERVICE_KEY = "62bcaae9fbdf4f3abb9fcae26ec2e279"
 
