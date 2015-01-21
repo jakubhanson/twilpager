@@ -1,4 +1,4 @@
-application: twil-pagerduty1.appspot.com
+application: twil-pagerduty1
 version: 1.1
 runtime: python
 api_version: 1
