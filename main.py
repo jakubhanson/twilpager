@@ -1,7 +1,8 @@
 # PagerDuty incidents triggered by phone: 
 import logging
 from google.appengine.ext import webapp
-from google.appengine.ext.webapp.util import run_wsgi_app
+from urllib2 import Request, urlopen, URLError, HTTPError
+import urllib
 import json
 import logging
 import urllib2
