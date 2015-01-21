@@ -29,8 +29,8 @@ def shorten(url):
 class CallHandler(webapp.RequestHandler):
   def get(self):
     response = ("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-      "<Response><Say>Leave a message at the beep.</Say>"
-      "<Record action=\"http://pdtestthrough.appspot.com/record\" method=\"GET\"/>"
+      "<Response><Say>Thanks for contacting IT support.  Please leave a message for the on call technician.</Say>"
+      "<Record action=\"http://twil-pagerduty1.appspot.com/record\" method=\"GET\"/>"
       "<Say>I did not receive a recording</Say></Response>")
     self.response.out.write(response)
     logging.info('Recieved CALL ' + self.request.query_string)
@@ -38,7 +38,7 @@ class CallHandler(webapp.RequestHandler):
 # Shorten the URL and trigger a PD incident with it
 class RecordHandler(webapp.RequestHandler):
   def get(self):
-    response = ("<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Say>Thanks.  Directing your message to the agent on call.</Say></Response>")
+    response = ("<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Say>Thanks.  The on call tech has been notified.</Say></Response>")
     self.response.out.write(response)
     logging.info('Recieved RECORDING: ' + self.request.query_string)
     recUrl = self.request.get("RecordingUrl")
