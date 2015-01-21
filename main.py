@@ -143,7 +143,7 @@ class IndexHandler(webapp.RequestHandler):
                 "</html>")
         self.response.out.write(response)
 
-app = webapp.WSGIApplication([
+application = webapp.WSGIApplication([
     ('/call', CallHandler),
     ('/record', RecordHandler),
     ('/sms', SMSHandler),
