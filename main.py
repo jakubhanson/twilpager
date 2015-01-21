@@ -140,7 +140,7 @@ class IndexHandler(webapp.RequestHandler):
         response = (
                 "<html>"
                 "<h1>phoneduty</h1>"
-		"<p><a href=\"http://www.github.com/dsshafer/phoneduty\">http://www.github.com/dsshafer/phoneduty</a></p>"
+		"<p><a href=\"http://github.com/jakubhanson/twilpager\">http://github.com/jakubhanson/twilpager</a></p>"
                 "</html>")
         self.response.out.write(response)
 
