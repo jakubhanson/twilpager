@@ -29,8 +29,8 @@ def shorten(url):
 class CallHandler(webapp.RequestHandler):
   def get(self):
     response = ("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-      "<Response><Say>Leave a message at the beep.</Say>"
-      "<Record action=\"http://pdtestthrough.appspot.com/record\" method=\"GET\"/>"
+      "<Response><Say>Thanks for Call IT Support. Please leave a message and the on call technician will be paged.</Say>"
+      "<Record action=\"http://twil-pagerduty1.appspot.com/record\" method=\"GET\"/>"
       "<Say>I did not receive a recording</Say></Response>")
     self.response.out.write(response)
     logging.info('Recieved CALL ' + self.request.query_string)
@@ -49,7 +49,7 @@ class RecordHandler(webapp.RequestHandler):
       logging.info('Found recording!')
       recUrl = recUrl + '.mp3' #There's better support for URLs that include the .mp3
     else:
-      recUrl = "https://github.com/eurica/PagerDutyCallDesk/" # I don't know what I should do with incidents that don't include an MP3
+      recUrl = "https://github.com/jakubhanson/twilpager/" # I don't know what I should do with incidents that don't include an MP3
       phonenumber = ""
     shrten = "Error"
     
@@ -81,7 +81,7 @@ class IndexHandler(webapp.RequestHandler):
   def get(self):
     response = ("<html><h1>Trigger a <a href='http://www.pagerduty.com'>PagerDuty</a> incident from a phone call</h1><ul>"
       "<li><a href='http://blog.pagerduty.com/2012/02/triggering-an-alert-from-a-phone-call'>About</a>"
-      "<li><a href='https://github.com/eurica/PagerDutyCallDesk/'>GitHub page</a>"
+      "<li><a href='https://github.com/jakubhanson/twilpager/'>GitHub page</a>"
       "<li><a href='/call'>/call</a> (returns XML)"
       "<li><a href='/record?RecordingUrl=http%3A%2F%2Fapi.twilio.com%2F2010-04-01%2FAccounts%2FACfdf710462c058abf3a987f393e8e9bc8%2FRecordings%2FRE6f523cd7734fa86e56e5ef0ea5ffd4cf'>/record</a> (test with 'Hey this is Jim...')"
       "</ul>Remember to change the application identifier and the service API key, or else you'll just alert me :)</html>")
